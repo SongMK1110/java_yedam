@@ -18,7 +18,5 @@ public class Test {
 		}
 		System.out.println(word);
 		
-		
-		///git 
 	}
 }
