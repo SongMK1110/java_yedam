@@ -19,6 +19,6 @@ public class Test {
 		System.out.println(word);
 		
 		
-		///git 된건가
+		///git 
 	}
 }
