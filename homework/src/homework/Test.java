@@ -17,5 +17,8 @@ public class Test {
 			word += " ";
 		}
 		System.out.println(word);
+		
+		
+		///git 된건가
 	}
 }
