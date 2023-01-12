@@ -43,16 +43,17 @@ public class Homework_0112 {
 				}
 				
 			}else if(selectNo == 4) {
-				int max = 0;
+				int max = proAry[0].price;
+				String maxName = null;
 				int total = 0;
 				for(int i = 0; i < proAry.length; i++) {
-					max = proAry[i].price;
 					if(max < proAry[i].price) {
 						max = proAry[i].price;
+						maxName = proAry[i].name;
 					}
 					total += proAry[i].price;
 				}
-				System.out.println("최고가격 : " + max);
+				System.out.println("최고가격 : " + max + ", 제품 이름 : " + maxName);
 				System.out.println("최고가격 제외 제품들의 총합 : " + (total-max));
 			}else if(selectNo == 5) {
 				System.out.println("프로그램 종료");
