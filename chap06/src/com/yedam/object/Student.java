@@ -4,6 +4,7 @@ public class Student {
 
 	//필드, 객체의 속성(정보, 데이터)가 저장되는 부분
 	//이름
+	final String school = "예담";
 	String name;
 	int age;
 	String schoolName;
@@ -16,6 +17,25 @@ public class Student {
 	//생성자 -> 매개변수, 객체 생성시 실행문 정의.
 	Student(){
 //		System.out.println("객체 생성중");
+	}
+	
+	Student(String name){
+		this.name = name;
+	}
+	
+	Student(int age){
+		if(age > 0) {
+			this.age = age;			
+		}
+		else {
+			this.age = 0;
+		}
+	}
+	
+	Student(String name, int age){
+		this(age);
+		//this.age = age;
+		this.name = name;
 	}
 	
 	//메소드, 객체를 생성 후 기능을 사용할 때 정의 하는 부분
