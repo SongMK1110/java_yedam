@@ -33,6 +33,13 @@ public class HashSetExample {
 		for(String skill : set) {
 			System.out.println("\t" + skill);
 		}
+		System.out.println();
+		
+		// 인스턴스는 존재하고 내부에 값들이 없어짐
+		set.clear();
+		if(set.isEmpty()) {
+			System.out.println("내부가 비어있습니다.");
+		}
 		
 	}
 
