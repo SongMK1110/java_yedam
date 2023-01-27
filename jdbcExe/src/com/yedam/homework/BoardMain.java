@@ -4,13 +4,33 @@ import java.util.List;
 import java.util.Scanner;
 
 public class BoardMain {
+
+	public static final String ANSI_RESET = "\u001B[0m";
+	public static final String ANSI_BLACK = "\u001B[30m";
+	public static final String ANSI_RED = "\u001B[31m";
+	public static final String ANSI_GREEN = "\u001B[32m";
+	public static final String ANSI_YELLOW = "\u001B[33m";
+	public static final String ANSI_BLUE = "\u001B[34m";
+	public static final String ANSI_PURPLE = "\u001B[35m";
+	public static final String ANSI_CYAN = "\u001B[36m";
+	public static final String ANSI_WHITE = "\u001B[37m";
+	
+	public static final String BLACK_BRIGHT = "\033[0;90m";  // BLACK
+    public static final String RED_BRIGHT = "\033[0;91m";    // RED
+    public static final String GREEN_BRIGHT = "\033[0;92m";  // GREEN
+    public static final String YELLOW_BRIGHT = "\033[0;93m"; // YELLOW
+    public static final String BLUE_BRIGHT = "\033[0;94m";   // BLUE
+    public static final String PURPLE_BRIGHT = "\033[0;95m"; // PURPLE
+    public static final String CYAN_BRIGHT = "\033[0;96m";   // CYAN
+    public static final String WHITE_BRIGHT = "\033[0;97m";  // WHITE
+	
 	BoardDAO dao = new BoardDAO();
 	SignDAO signdao = new SignDAO();
 	Scanner sc = new Scanner(System.in);
 
 	public void exe() {
 		while (true) {
-			System.out.println("1. 로그인 | 2. 회원가입 | 3. 종료");
+			System.out.println(GREEN_BRIGHT + "1. 로그인 | 2. 회원가입 | 3. 종료" + ANSI_RESET);
 			int selectNum = sc.nextInt();
 			if (selectNum == 1) {
 				login();
@@ -57,9 +77,9 @@ public class BoardMain {
 	}
 
 	public void sign() {
-		System.out.println("=================================");
-		System.out.println("              회원가입");
-		System.out.println("=================================");
+		System.out.println(ANSI_YELLOW + "=================================" + ANSI_RESET);
+		System.out.println(ANSI_YELLOW + "              회원가입" + ANSI_RESET);
+		System.out.println(ANSI_YELLOW + "=================================" + ANSI_RESET);
 		System.out.println("아이디 입력>> ");
 		String id = sc.next();
 		System.out.println("비밀번호 입력>> ");
@@ -86,9 +106,9 @@ public class BoardMain {
 
 	public void login() {
 		while (true) {
-			System.out.println("=================================");
-			System.out.println("              로그인");
-			System.out.println("=================================");
+			System.out.println(PURPLE_BRIGHT + "================================="  + ANSI_RESET);
+			System.out.println(PURPLE_BRIGHT + "              로그인" + ANSI_RESET);
+			System.out.println(PURPLE_BRIGHT + "=================================" + ANSI_RESET);
 			System.out.println("아이디 입력>>");
 			String id = sc.next();
 			System.out.println("비밀번호 입력>>");
@@ -110,15 +130,15 @@ public class BoardMain {
 	}
 
 	public void board() {
-		System.out.println("=========================================================");
-		System.out.println("                          게시판");
-		System.out.println("=========================================================");
-		System.out.println("no     |     제목     |     작성자     |     작성일");
+		System.out.println(BLUE_BRIGHT + "=========================================================" + ANSI_RESET);
+		System.out.println(BLUE_BRIGHT + "                          게시판" + ANSI_RESET);
+		System.out.println(BLUE_BRIGHT + "=========================================================" + ANSI_RESET);
+		System.out.println(RED_BRIGHT + "no     |     제목     |     작성자     |     작성일" + ANSI_RESET);
 	}
 
 	public void menu() {
 
-		System.out.println("1. 글 상세보기 | 2. 글 작성 | 3. 글 수정 | 4. 글 삭제 | 5. 로그아웃 | 6. 종료");
+		System.out.println(CYAN_BRIGHT + "1. 글 상세보기 | 2. 글 작성 | 3. 글 수정 | 4. 글 삭제 | 5. 로그아웃 | 6. 종료" + ANSI_RESET);
 	}
 
 	public void list() {
@@ -138,13 +158,18 @@ public class BoardMain {
 			System.out.println("조회된 정보 없음");
 			return;
 		}
+		System.out.println(BLUE_BRIGHT + "===========================" + ANSI_RESET);
+		System.out.println(BLUE_BRIGHT + "          글 상세" + ANSI_RESET);
+		System.out.println(BLUE_BRIGHT + "===========================" + ANSI_RESET);
 		System.out.println(board.toStringSearch(no));
 		System.out.println();
-		System.out.println("1. 뒤로가기");
-		int selectNum = sc.nextInt();
 		while (true) {
+			System.out.println("1. 뒤로가기");
+			int selectNum = sc.nextInt();
 			if (selectNum == 1) {
 				break;
+			} else {
+				System.out.println("다시 입력해주세요");
 			}
 		}
 	}
